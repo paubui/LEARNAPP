@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_learnapp/Actividades.dart';
+import 'package:proyecto_learnapp/Configuraciones.dart';
+import 'package:proyecto_learnapp/Contenido_Interactivo.dart';
+import 'package:proyecto_learnapp/Juegos.dart';
+import 'package:proyecto_learnapp/Videos.dart';
 
 class Paginaprincipal extends StatelessWidget {
   const Paginaprincipal({super.key});
@@ -18,6 +23,7 @@ class Paginaprincipal extends StatelessWidget {
             icon: const Icon(Icons.settings),
             onPressed: () {
               // Acción para abrir las configuraciones
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const Configuraciones()));
             },
           ),
         ],
@@ -51,12 +57,50 @@ class Paginaprincipal extends StatelessWidget {
           ],
         ),
       ),
-      body: const Center(
-        child: Text(
-          'Contenido de la página principal',
-          style: TextStyle(fontSize: 20),
+      body: ListView(
+          children: [
+            const SizedBox(height: 140), // Espacio 
+            ElevatedButton(
+              onPressed: () {
+                // Acción para actividades
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Actividades()));
+              },
+              child: const Text('Actividades',
+              style: TextStyle(fontSize: 24), // Tamaño de la fuente
+              ),
+            ),
+            const SizedBox(height: 110), // Espacio 
+            ElevatedButton(
+              onPressed: () {
+                // Acción para añadir videos
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Videos()));
+              },
+              child: const Text('Videos',
+              style: TextStyle(fontSize: 24), // Tamaño de la fuente
+              ),
+            ),
+            const SizedBox(height: 110), // Espacio 
+            ElevatedButton(
+              onPressed: () {
+                // Acción para añadir juegos
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Juegos()));
+              },
+              child: const Text('Juegos',
+              style: TextStyle(fontSize: 24), // Tamaño de la fuente
+              ),
+            ),
+            const SizedBox(height: 110), // Espacio 
+            ElevatedButton(
+              onPressed: () {
+                // Acción para añadir contenido interactivo
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Contenido_Interactivo()));
+              },
+              child: const Text('Contenido Interactivo',
+              style: TextStyle(fontSize: 24), // Tamaño de la fuente
+              ),
+            ),
+          ],
         ),
-      ),
-    );
+      );
+    }
   }
-}
