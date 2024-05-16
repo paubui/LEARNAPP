@@ -24,59 +24,80 @@ class FirstPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.green, // Color de fondo de la pantalla
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'LEARNAPP',
-              style: TextStyle(
-                color: Colors.orange,
-                fontSize: 75, // Tamaño del texto
-                fontWeight: FontWeight.w800, // Hace que el texto sea más grueso
-              ),
+            Stack(
+              children: [
+                Image.asset(
+                  "img/background.png",
+                ),
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 45),
+                    child: const Text(
+                      'LEARNAPP',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 11, 31, 99),
+                        fontSize: 45, // Tamaño del texto
+                        fontWeight:
+                            FontWeight.w800, // Hace que el texto sea más grueso
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
+
             const SizedBox(height: 50), // Espacio entre el texto y el botón
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: CustomButton(
-                      width: 150.0, // Ancho del botón
-                      height: 50.0, // Alto del botón
-                      fontSize: 20.0, // Tamaño de la letra
-                      textColor: Colors.white, // Color del texto
-                      buttonColor: Colors.black, // Color de fondo del botón
-                      borderRadius: 10.0, // Radio del borde del botón
-                      buttonText: 'Crear cuenta', // Texto del botón
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()));
-                      },
-                    ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomButton(
+                    width: size.width * 0.38, // Ancho del botón
+                    height: 50.0, // Alto del botón
+                    fontSize: size.width * 0.05, // Tamaño de la letra
+                    textColor: Colors.white, // Color del texto
+                    buttonColor: Colors.black, // Color de fondo del botón
+                    borderRadius: 10.0, // Radio del borde del botón
+                    buttonText: 'Crear cuenta', // Texto del botón
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SecondPage()));
+                    },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: CustomButton(
-                      width: 150.0, // Ancho del botón
-                      height: 50.0, // Alto del botón
-                      fontSize: 20.0, // Tamaño de la letra
-                      textColor: Colors.white, // Color del texto
-                      buttonColor: Colors.black, // Color de fondo del botón
-                      borderRadius: 10.0, // Radio del borde del botón
-                      buttonText: 'Iniciar sesión', // Texto del botón
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const Iniciarsesion()));
-                      },
-                    ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomButton(
+                    width: size.width * 0.38, // Ancho del botón
+                    height: 50.0, // Alto del botón
+                    fontSize: size.width * 0.05, // Tamaño de la letra
+                    textColor: Colors.white, // Color del texto
+                    buttonColor: Colors.black, // Color de fondo del botón
+                    borderRadius: 10.0, // Radio del borde del botón
+                    buttonText: 'Iniciar sesión', // Texto del botón
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Iniciarsesion()));
+                    },
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
+      ),
     );
   }
 }
